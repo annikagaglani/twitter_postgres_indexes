@@ -1,0 +1,152 @@
+nohup: ignoring input
+================================================================================
+load pg_denormalized
+================================================================================
+COPY 2979992
+COPY 3044365
+COPY 3038917
+COPY 3143286
+COPY 3189325
+COPY 3129896
+COPY 3157691
+COPY 3148130
+COPY 3306556
+COPY 3376266
+2084.06user 436.85system 4:32:24elapsed 15%CPU (0avgtext+0avgdata 17920maxresident)k
+4211552inputs+372040outputs (1major+78402minor)pagefaults 0swaps
+================================================================================
+load pg_normalized_batch
+================================================================================
+2025-05-05 16:45:41.041732 /data/tweets/geoTwitter21-01-01.zip
+2025-05-05 16:45:56.345481 insert_tweets i= 0
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
+    insert_tweets(connection,tweets,args.batch_size)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
+    _insert_tweets(connection, tweet_batch)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
+    with connection.begin() as trans:
+         ^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
+2025-05-05 16:45:41.041958 /data/tweets/geoTwitter21-01-09.zip
+2025-05-05 16:45:58.494346 insert_tweets i= 0
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
+    insert_tweets(connection,tweets,args.batch_size)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
+    _insert_tweets(connection, tweet_batch)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
+    with connection.begin() as trans:
+         ^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
+2025-05-05 16:45:41.040534 /data/tweets/geoTwitter21-01-02.zip
+2025-05-05 16:45:58.190986 insert_tweets i= 0
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
+    insert_tweets(connection,tweets,args.batch_size)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
+    _insert_tweets(connection, tweet_batch)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
+    with connection.begin() as trans:
+         ^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
+2025-05-05 16:45:41.042534 /data/tweets/geoTwitter21-01-10.zip
+2025-05-05 16:45:58.850085 insert_tweets i= 0
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
+    insert_tweets(connection,tweets,args.batch_size)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
+    _insert_tweets(connection, tweet_batch)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
+    with connection.begin() as trans:
+         ^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
+2025-05-05 16:45:41.041938 /data/tweets/geoTwitter21-01-07.zip
+2025-05-05 16:45:58.844688 insert_tweets i= 0
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
+    insert_tweets(connection,tweets,args.batch_size)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
+    _insert_tweets(connection, tweet_batch)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
+    with connection.begin() as trans:
+         ^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
+2025-05-05 16:45:41.041672 /data/tweets/geoTwitter21-01-05.zip
+2025-05-05 16:45:59.266513 insert_tweets i= 0
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
+    insert_tweets(connection,tweets,args.batch_size)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
+    _insert_tweets(connection, tweet_batch)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
+    with connection.begin() as trans:
+         ^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
+2025-05-05 16:45:41.041955 /data/tweets/geoTwitter21-01-04.zip
+2025-05-05 16:45:59.402171 insert_tweets i= 0
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
+    insert_tweets(connection,tweets,args.batch_size)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
+    _insert_tweets(connection, tweet_batch)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
+    with connection.begin() as trans:
+         ^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
+2025-05-05 16:45:41.041939 /data/tweets/geoTwitter21-01-08.zip
+2025-05-05 16:45:59.960626 insert_tweets i= 0
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
+    insert_tweets(connection,tweets,args.batch_size)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
+    _insert_tweets(connection, tweet_batch)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
+    with connection.begin() as trans:
+         ^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
+2025-05-05 16:45:41.041712 /data/tweets/geoTwitter21-01-03.zip
+2025-05-05 16:45:59.574919 insert_tweets i= 0
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
+    insert_tweets(connection,tweets,args.batch_size)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
+    _insert_tweets(connection, tweet_batch)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
+    with connection.begin() as trans:
+         ^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
+2025-05-05 16:45:41.041690 /data/tweets/geoTwitter21-01-06.zip
+2025-05-05 16:46:03.310802 insert_tweets i= 0
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
+    insert_tweets(connection,tweets,args.batch_size)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
+    _insert_tweets(connection, tweet_batch)
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
+    with connection.begin() as trans:
+         ^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
+Command exited with non-zero status 10
+233.75user 19.62system 1:35.54elapsed 265%CPU (0avgtext+0avgdata 2675200maxresident)k
+21112inputs+5664outputs (85major+8052623minor)pagefaults 0swaps
