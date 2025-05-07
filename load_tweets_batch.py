@@ -37,8 +37,6 @@ def remove_nulls(s):
     else:
         return s.replace('\x00','\\x00')
 
-
-
 def batch(iterable, n=1):
     '''
     Group an iterable into batches of size n.
@@ -185,7 +183,6 @@ def _insert_tweets(connection,input_tweets):
         else:
             url = tweet['user']['url']
 
-
         users.append({
             'id_users':tweet['user']['id'],
             'created_at':tweet['user']['created_at'],
@@ -193,7 +190,7 @@ def _insert_tweets(connection,input_tweets):
             'screen_name':remove_nulls(tweet['user']['screen_name']),
             'name':remove_nulls(tweet['user']['name']),
             'location':remove_nulls(tweet['user']['location']),
-            'url':url,
+            'urls':url,
             'description':remove_nulls(tweet['user']['description']),
             'protected':tweet['user']['protected'],
             'verified':tweet['user']['verified'],
@@ -300,7 +297,7 @@ def _insert_tweets(connection,input_tweets):
             url = u['expanded_url']
             tweet_urls.append({
                 'id_tweets':tweet['id'],
-                'url':url,
+                'urls':url,
                 })
 
         ########################################
@@ -356,9 +353,10 @@ def _insert_tweets(connection,input_tweets):
                 media = []
 
         for medium in media:
+            url = medium['media_url']
             tweet_media.append({
                 'id_tweets':tweet['id'],
-                'url':url,
+                'urls':url,
                 'type':medium['type']
                 })
 

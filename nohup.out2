@@ -5,136 +5,1186 @@ load pg_denormalized
 ================================================================================
 load pg_normalized_batch
 ================================================================================
-2025-05-06 10:04:16.819559 /data/tweets/geoTwitter21-01-01.zip
-2025-05-06 10:04:32.520501 insert_tweets i= 0
 Traceback (most recent call last):
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
-    insert_tweets(connection,tweets,args.batch_size)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
-    _insert_tweets(connection, tweet_batch)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
-    with connection.begin() as trans:
-         ^^^^^^^^^^^^^^^^^^
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
-2025-05-06 10:04:16.824008 /data/tweets/geoTwitter21-01-05.zip
-2025-05-06 10:04:33.046099 insert_tweets i= 0
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
-    insert_tweets(connection,tweets,args.batch_size)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
-    _insert_tweets(connection, tweet_batch)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
-    with connection.begin() as trans:
-         ^^^^^^^^^^^^^^^^^^
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
-2025-05-06 10:04:16.803665 /data/tweets/geoTwitter21-01-02.zip
-2025-05-06 10:04:33.746550 insert_tweets i= 0
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 414, in <module>
+    connection = engine.connect()
+                 ^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
 Traceback (most recent call last):
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
-    insert_tweets(connection,tweets,args.batch_size)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
-    _insert_tweets(connection, tweet_batch)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
-    with connection.begin() as trans:
-         ^^^^^^^^^^^^^^^^^^
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
-2025-05-06 10:04:16.843559 /data/tweets/geoTwitter21-01-03.zip
-2025-05-06 10:04:33.802124 insert_tweets i= 0
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
-    insert_tweets(connection,tweets,args.batch_size)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
-    _insert_tweets(connection, tweet_batch)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
-    with connection.begin() as trans:
-         ^^^^^^^^^^^^^^^^^^
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
-2025-05-06 10:04:16.803671 /data/tweets/geoTwitter21-01-09.zip
-2025-05-06 10:04:34.074685 insert_tweets i= 0
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 414, in <module>
+    connection = engine.connect()
+                 ^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
 Traceback (most recent call last):
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
-    insert_tweets(connection,tweets,args.batch_size)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
-    _insert_tweets(connection, tweet_batch)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
-    with connection.begin() as trans:
-         ^^^^^^^^^^^^^^^^^^
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
-2025-05-06 10:04:16.850160 /data/tweets/geoTwitter21-01-04.zip
-2025-05-06 10:04:34.643218 insert_tweets i= 0
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
-    insert_tweets(connection,tweets,args.batch_size)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
-    _insert_tweets(connection, tweet_batch)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
-    with connection.begin() as trans:
-         ^^^^^^^^^^^^^^^^^^
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
-2025-05-06 10:04:16.834514 /data/tweets/geoTwitter21-01-07.zip
-2025-05-06 10:04:35.361643 insert_tweets i= 0
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 414, in <module>
+    connection = engine.connect()
+                 ^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
 Traceback (most recent call last):
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
-    insert_tweets(connection,tweets,args.batch_size)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
-    _insert_tweets(connection, tweet_batch)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
-    with connection.begin() as trans:
-         ^^^^^^^^^^^^^^^^^^
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
-2025-05-06 10:04:16.875865 /data/tweets/geoTwitter21-01-08.zip
-2025-05-06 10:04:35.642368 insert_tweets i= 0
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
-    insert_tweets(connection,tweets,args.batch_size)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
-    _insert_tweets(connection, tweet_batch)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
-    with connection.begin() as trans:
-         ^^^^^^^^^^^^^^^^^^
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
-2025-05-06 10:04:16.895017 /data/tweets/geoTwitter21-01-10.zip
-2025-05-06 10:04:35.787103 insert_tweets i= 0
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 414, in <module>
+    connection = engine.connect()
+                 ^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
 Traceback (most recent call last):
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
-    insert_tweets(connection,tweets,args.batch_size)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
-    _insert_tweets(connection, tweet_batch)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
-    with connection.begin() as trans:
-         ^^^^^^^^^^^^^^^^^^
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
-2025-05-06 10:04:16.855775 /data/tweets/geoTwitter21-01-06.zip
-2025-05-06 10:04:38.570522 insert_tweets i= 0
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 432, in <module>
-    insert_tweets(connection,tweets,args.batch_size)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 149, in insert_tweets
-    _insert_tweets(connection, tweet_batch)
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 368, in _insert_tweets
-    with connection.begin() as trans:
-         ^^^^^^^^^^^^^^^^^^
-  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 862, in begin
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: This connection has already initialized a SQLAlchemy Transaction() object via begin() or autobegin; can't call begin() here unless rollback() or commit() is called first.
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 414, in <module>
+    connection = engine.connect()
+                 ^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 414, in <module>
+    connection = engine.connect()
+                 ^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 414, in <module>
+    connection = engine.connect()
+                 ^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 414, in <module>
+    connection = engine.connect()
+                 ^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 414, in <module>
+    connection = engine.connect()
+                 ^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/load_tweets_batch.py", line 414, in <module>
+    connection = engine.connect()
+                 ^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users_bigdata/agaglan2/twitter_postgres_indexes/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 4001 failed: FATAL:  the database system is not yet accepting connections
+DETAIL:  Consistent recovery state has not been yet reached.
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
 Command exited with non-zero status 10
-212.93user 18.30system 0:34.05elapsed 679%CPU (0avgtext+0avgdata 2677760maxresident)k
-1564512inputs+4280outputs (76major+7429041minor)pagefaults 0swaps
+2.70user 0.63system 0:00.64elapsed 518%CPU (0avgtext+0avgdata 42240maxresident)k
+760inputs+2432outputs (22major+111581minor)pagefaults 0swaps
